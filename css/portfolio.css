@@ -1,0 +1,303 @@
+/* Estilo base del cuerpo */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px; /* fuente base más grande */
+  background: radial-gradient(circle at top, #000022, #000000);
+  color: #e0f7fa;
+  margin: 0;
+  padding: 0;
+  position: relative; /* para el pseudo-elemento de partículas */
+  line-height: 1.6; /* mejor legibilidad */
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 40px;
+  background: #001a33;
+  color: #66ffff;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 36px; /* título principal más grande */
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 26px; /* subtítulos más grandes */
+  margin-bottom: 15px;
+}
+
+/* Centrar título de Proyectos */
+section.box.celeste.fade h2 {
+  text-align: center;
+}
+
+/* Secciones con collage y fondos laterales */
+section.collage {
+  position: relative;
+  padding: 20px;
+}
+
+section.collage::before,
+section.collage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Collages específicos */
+section.collage.intro::before { background-image: url('images/01.png'); }
+section.collage.intro::after { background-image: url('images/02.png'); right: 0; left: auto; }
+
+section.collage.exp::before { background-image: url('images/03.png'); }
+section.collage.exp::after { background-image: url('images/04.png'); right: 0; left: auto; }
+
+section.collage.edu::before { background-image: url('images/05.png'); }
+section.collage.edu::after { background-image: url('images/06.png'); right: 0; left: auto; }
+
+section.collage.proyectos {
+  padding: 20px 160px;
+}
+section.collage.proyectos::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 150px; height: 100%;
+  background-image: url('images/07.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+section.collage.proyectos::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 150px; height: 100%;
+  background-image: url('images/08.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+section.collage.proyectos > * {
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+/* Cajas */
+.box {
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  opacity: 0;
+  transition: all 1s ease;
+  font-size: 16px;
+}
+.box.visible { opacity: 1; }
+
+/* Colores */
+.celeste {
+  border: 2px solid #66ffff;
+  background: rgba(0, 51, 102, 0.8);
+}
+.verde {
+  border: 2px solid #66ff99;
+  background: rgba(0, 102, 51, 0.8);
+}
+
+/* Animaciones */
+.fade { transform: translateY(50px); }
+.fade.visible { transform: translateY(0); }
+
+.slide-left { transform: translateX(-50px); }
+.slide-left.visible { transform: translateX(0); }
+
+.slide-right { transform: translateX(50px); }
+.slide-right.visible { transform: translateX(0); }
+
+.zoom { transform: scale(0.8); }
+.zoom.visible { transform: scale(1); }
+
+/* Botones */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  background: #003366;
+  color: #66ffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+.btn:hover {
+  background: #66ffff;
+  color: #001a33;
+  box-shadow: 0 0 15px #66ffff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #001a33;
+  color: #66ffff;
+  font-size: 14px;
+}
+
+/* Redes sociales */
+.social {
+  text-align: center;
+  padding: 20px;
+  background: #000022;
+  color: #66ffff;
+  font-size: 16px;
+}
+.social a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #66ffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.social a:hover { color: #66ff99; }
+
+/* Mosaico proyectos */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.project-card {
+  background: rgba(0, 51, 102, 0.8);
+  border: 2px solid #66ffff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 1s ease;
+  opacity: 0;
+  font-size: 15px;
+}
+.project-card.visible { opacity: 1; }
+.project-card:hover { transform: scale(1.05); }
+.project-card img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #66ffff;
+}
+
+.compartment ul {
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  font-size: 16px;
+}
+
+
+.compartment ul li {
+  position: relative;
+  padding-left: 28px; /* espacio para el icono */
+}
+
+.compartment ul li::before {
+  content: "✦"; /* solo el icono */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #66ffff;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* Centrar verticalmente el texto en Intereses */
+.compartment.intereses {
+  align-items: center;
+}
+
+/* Fondo animado partículas */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,255,255,0.2) 2px, transparent 2px);
+  background-size: 50px 50px;
+  animation: floatParticles 5s ease-in-out infinite; /* más rápido y bidireccional */
+  z-index: -1;
+}
+@keyframes floatParticles {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-200px); }
+  100% { transform: translateY(0); }
+}
+
+/* Botones fijos */
+.fixed-buttons {
+  position: fixed;
+  top: 40px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10000;
+}
+.fixed-buttons a {
+  width: auto; /* ahora permite texto */
+  min-width: 55px;
+  height: 55px;
+  background: #0a0a0a;
+  color: #0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espacio entre icono y texto */
+  padding: 0 12px;
+  border-radius: 30px; /* ovalado para texto */
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(0,255,255,0.6);
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+  overflow: hidden;
+}
+.fixed-buttons a:hover {
+  background: #00cccc;
+  color: #fff;
+  transform: scale(1.05);
+}
+.fixed-buttons svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Texto dentro de los botones */
+.fixed-buttons .btn-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0ff;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultar texto al pasar el mouse */
+.fixed-buttons a:hover .btn-text {
+  opacity: 0;
+}
